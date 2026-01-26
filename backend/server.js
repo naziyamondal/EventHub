@@ -36,6 +36,9 @@ mongoose
   .catch((err) => console.log(err));
 
 /* ===== START SERVER ===== */
+app.get("/", (req, res) => {
+  res.send("EventHub Backend is Live");
+});
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
