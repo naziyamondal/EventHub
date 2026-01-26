@@ -9,13 +9,13 @@ if (!user) {
 
 let currentEvent = null;
 
-fetch(`http://localhost:4000/api/events/${eventId}`)
+fetch(`https://eventhub-backend-hs65.onrender.com/api/events/${eventId}`)
   .then(res => res.json())
   .then(event => {
     currentEvent = event;
 
     document.getElementById("eventImage").src =
-      `http://localhost:4000${event.image}`;
+      `https://eventhub-backend-hs65.onrender.com${event.image}`;
 
     document.getElementById("eventTitle").innerText = event.title;
     document.getElementById("eventDesc").innerText = event.description;
@@ -57,7 +57,7 @@ fetch(`http://localhost:4000/api/events/${eventId}`)
 
       const ticketCount = Number(ticketInput.value);
 
-      fetch("http://localhost:4000/api/bookings", {
+      fetch("https://eventhub-backend-hs65.onrender.com/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

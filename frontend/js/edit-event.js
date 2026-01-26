@@ -8,7 +8,7 @@ if (!localStorage.getItem("admin")) {
 const eventId = localStorage.getItem("editEventId");
 console.log("Event ID:", eventId);
 
-fetch(`http://localhost:4000/api/events/${eventId}`)
+fetch(`https://eventhub-backend-hs65.onrender.com/api/events/${eventId}`)
   .then(res => res.json())
   .then(event => {
     console.log("Fetched Event:", event);
@@ -25,7 +25,7 @@ fetch(`http://localhost:4000/api/events/${eventId}`)
 document.getElementById("eventForm").addEventListener("submit", e => {
   e.preventDefault();
 
-  fetch(`http://localhost:4000/api/events/${eventId}`, {
+  fetch(`https://eventhub-backend-hs65.onrender.com/api/events/${eventId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

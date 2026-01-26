@@ -20,7 +20,7 @@ document.getElementById("eventForm").addEventListener("submit", function (e) {
     image: document.getElementById("image").value
   };
 
-  fetch("http://localhost:4000/api/events", {
+  fetch("https://eventhub-backend-hs65.onrender.com/api/events", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

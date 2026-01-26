@@ -1,7 +1,7 @@
 document.getElementById("adminLogin").addEventListener("submit", e => {
   e.preventDefault();
 
-  fetch("http://localhost:4000/api/admin/login", {
+  fetch("https://eventhub-backend-hs65.onrender.com/api/admin/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

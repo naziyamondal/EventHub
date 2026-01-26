@@ -1,4 +1,4 @@
-fetch("http://localhost:4000/api/events")
+fetch("https://eventhub-backend-hs65.onrender.com/api/events")
   .then(res => res.json())
   .then(events => {
     events.forEach(e => {
@@ -14,7 +14,7 @@ fetch("http://localhost:4000/api/events")
 
 function book(title) {
   const email = prompt("Enter your email");
-  fetch("http://localhost:4000/api/bookings", {
+  fetch("https://eventhub-backend-hs65.onrender.com/api/bookings", {
     method: "POST",
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify({ userEmail: email, eventTitle: title })
