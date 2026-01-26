@@ -1,6 +1,6 @@
 let allEvents = [];
 
-fetch("http://localhost:5000/api/events")
+fetch("http://localhost:4000/api/events")
   .then(res => res.json())
   .then(data => {
     allEvents = data;
@@ -21,7 +21,7 @@ function displayEvents(events) {
   events.forEach(e => {
     grid.innerHTML += `
       <div class="event-card">
-        <img src="http://localhost:5000${e.image}" alt="${e.title}">
+        <img src="http://localhost:4000${e.image}" alt="${e.title}">
 
 
 
@@ -91,7 +91,7 @@ function bookEvent(event) {
     return;
   }
 
-  fetch("http://localhost:5000/api/bookings", {
+  fetch("http://localhost:4000/api/bookings", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -123,7 +123,7 @@ if (isAdmin) {
 function deleteEvent(id) {
   if (!confirm("Delete this event?")) return;
 
-  fetch(`http://localhost:5000/api/events/${id}`, {
+  fetch(`http://localhost:4000/api/events/${id}`, {
     method: "DELETE"
   }).then(() => location.reload());
 }

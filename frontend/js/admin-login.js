@@ -1,7 +1,7 @@
 document.getElementById("adminLogin").addEventListener("submit", e => {
   e.preventDefault();
 
-  fetch("http://localhost:5000/api/admin/login", {
+  fetch("http://localhost:4000/api/admin/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

@@ -1,43 +1,41 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
-mongoose.connect("mongodb://127.0.0.1:27017/eventhub");
+const path = require("path");
+require("dotenv").config(); // IMPORTANT for process.env.PORT
 
 const app = express();
+
+/* ===== PORT ===== */
+const PORT = process.env.PORT || 4000;
+
+/* ===== MIDDLEWARE ===== */
 app.use(cors());
 app.use(express.json());
-const path = require("path");
 
-// Serve images folder
+/* ===== STATIC FILES ===== */
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
-
+/* ===== ROUTES ===== */
 app.use("/api/events", require("./routes/events"));
 app.use("/api/bookings", require("./routes/bookings"));
+app.use("/api/admin", require("./routes/admin"));
+app.use("/api/users", require("./routes/userRoutes"));
 
-app.listen(5000, () => {
-  console.log("Server running at http://localhost:5000");
-});
-
+/* ===== DATABASE + SEEDING ===== */
 const seedEvents = require("./seedEvents");
+const seedAdmin = require("./seedAdmin");
 
-mongoose.connect("mongodb://127.0.0.1:27017/eventhub")
-  .then(() => {
-    console.log("MongoDB connected");
-    seedEvents(); // 👈 ADD HERE
-  })
-  .catch(err => console.log(err));
-
-  const seedAdmin = require("./seedAdmin");
-
-mongoose.connect("mongodb://127.0.0.1:27017/eventhub")
+mongoose
+  .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/eventhub")
   .then(() => {
     console.log("MongoDB connected");
     seedEvents();
-    seedAdmin();   
+    seedAdmin();
   })
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));
 
-  app.use("/api/admin", require("./routes/admin"));
-  app.use("/api/users", require("./routes/userRoutes"));
+/* ===== START SERVER ===== */
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  fetch(`http://localhost:5000/api/bookings/${user.email}`)
+  fetch(`http://localhost:4000/api/bookings/${user.email}`)
     .then(res => res.json())
     .then(renderBookings);
 });
@@ -71,7 +71,7 @@ function renderBookings(bookings) {
 function cancelBooking(id) {
   if (!confirm("Are you sure you want to cancel this booking?")) return;
 
-  fetch(`http://localhost:5000/api/bookings/cancel/${id}`, {
+  fetch(`http://localhost:4000/api/bookings/cancel/${id}`, {
     method: "PUT"
   })
     .then(res => res.json())

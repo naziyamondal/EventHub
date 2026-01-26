@@ -13,7 +13,7 @@ loadDashboard();
 function loadDashboard() {
 
   // ✅ EVENTS COUNT
-  fetch("http://localhost:5000/api/events")
+  fetch("http://localhost:4000/api/events")
     .then(res => res.json())
     .then(events => {
       document.getElementById("totalEvents").innerText = events.length;
@@ -21,14 +21,14 @@ function loadDashboard() {
     });
 
   // ✅ ACTIVE BOOKINGS COUNT (CONFIRMED ONLY)
-  fetch("http://localhost:5000/api/bookings/count/active")
+  fetch("http://localhost:4000/api/bookings/count/active")
     .then(res => res.json())
     .then(data => {
       document.getElementById("totalBookings").innerText = data.count;
     });
 
   // ✅ LOAD ALL BOOKINGS FOR TABLE
-  fetch("http://localhost:5000/api/bookings/all")
+  fetch("http://localhost:4000/api/bookings/all")
     .then(res => res.json())
     .then(bookings => {
       renderBookings(bookings);
@@ -78,7 +78,7 @@ function renderBookings(bookings) {
 
 function deleteEvent(id) {
   if (!confirm("Delete this event?")) return;
-  fetch(`http://localhost:5000/api/events/${id}`, {
+  fetch(`http://localhost:4000/api/events/${id}`, {
     method: "DELETE"
   }).then(() => location.reload());
 }
