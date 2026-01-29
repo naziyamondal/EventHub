@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Browse Events | Eventhub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="icon">📅</span>
+      <span class="brand">Eventhub</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="browse-events.html">Browse Events</a>
+      <a href="bookings.html" onclick="requireLogin(event)">My Bookings</a>
+
+      <span id="userGreeting" class="user-greeting"></span>
+      <a href="login.html" id="loginBtn">Login</a>
+      <a href="#" id="logoutBtn" onclick="logoutUser()" style="display:none;">Logout</a>
+      <button id="themeToggle" class="btn">🌙</button>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="browse-header">
+    <h1>Discover Events</h1>
+    <p>
+      Find and register for upcoming events, webinars, and conferences
+    </p>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Search events..." onkeyup="filterEvents()">
+
+      <select id="typeFilter" onchange="filterEvents()">
+        <option value="">All Types</option>
+        <option value="Webinar">Webinar</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Conference">Conference</option>
+        <option value="Meetup">Meetup</option>
+        <option value="Seminar">Seminar</option>
+      </select>
+
+      <select id="statusFilter" onchange="filterEvents()">
+        <option value="">All Status</option>
+        <option value="Upcoming">Upcoming</option>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- EVENTS LIST -->
+  <section class="events-grid" id="eventsGrid">
+    <!-- Event cards will load here -->
+  </section>
+
+  <script>
+    function redirectBookings(e) {
+      if (!localStorage.getItem("user")) {
+        e.preventDefault();
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+
+  <script src="js/config.js"></script>
+  <script src="js/browse.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

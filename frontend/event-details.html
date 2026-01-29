@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Event Details | Eventhub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="icon">📅</span>
+      <span class="brand">Eventhub</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="browse-events.html">Browse Events</a>
+      <a href="bookings.html" onclick="requireLogin(event)">My Bookings</a>
+
+      <span id="userGreeting" class="user-greeting"></span>
+      <a href="login.html" id="loginBtn">Login</a>
+      <a href="#" id="logoutBtn" onclick="logoutUser()" style="display:none;">Logout</a>
+
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <a href="browse-events.html" class="back-link">← Back to Events</a>
+
+  <section class="event-details">
+    <div class="event-left">
+      <img id="eventImage" />
+    </div>
+
+    <div class="event-right">
+      <h2 id="eventTitle"></h2>
+      <p id="eventDesc"></p>
+
+      <ul class="event-meta">
+        <li>📅 <span id="eventDate"></span></li>
+        <li>📍 <span id="eventLocation"></span></li>
+        <li>👥 Seats left: <span id="eventSeats"></span></li>
+        <li>💵 USD $<span id="eventPrice"></span></li>
+      </ul>
+
+      <h3>Register for Event</h3>
+
+      <form id="registerForm">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="number" id="tickets" placeholder="Number of tickets" min="1" required />
+
+        <p>Total Price:
+          <strong>USD $<span id="totalPrice"></span></strong>
+        </p>
+        <label>
+          <input type="checkbox" required />I agree to receive booking confirmation via email
+        </label>
+        <button id="confirmBtn" type="submit">Confirm Seat</button>
+
+      </form>
+    </div>
+  </section>
+
+  <script src="js/config.js"></script>
+  <script src="js/event-details.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

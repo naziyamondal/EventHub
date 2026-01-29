@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Eventhub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="icon">📅</span>
+      <span class="brand">Eventhub</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="browse-events.html">Browse Events</a>
+      <a href="bookings.html" onclick="requireLogin(event)">My Bookings</a>
+
+      <span id="userGreeting" class="user-greeting"></span>
+      <a href="login.html" id="loginBtn">Login</a>
+      <a href="#" id="logoutBtn" onclick="logoutUser()" style="display:none;">Logout</a>
+      <button id="themeToggle" class="btn">🌙</button>
+
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+
+  <section class="hero">
+    <h1>Discover & Register for <span>Amazing Events</span></h1>
+  </section>
+  <section class="why">
+    <h2>Why Choose Eventhub</h2>
+    <p class="subtitle">
+      Seamless event management and booking experience
+    </p>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">📅</div>
+        <h3>Easy Discovery</h3>
+        <p>
+          Browse and filter events by type, date, and location with our
+          intuitive interface.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🎟️</div>
+        <h3>Instant Booking</h3>
+        <p>
+          Register for events in seconds and get instant confirmation
+          with tickets.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">📧</div>
+        <h3>Email Confirmation</h3>
+        <p>
+          Automatic email confirmations with event details and access
+          information.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">👥</div>
+        <h3>Manage Bookings</h3>
+        <p>
+          Track all your event registrations and bookings in one place.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

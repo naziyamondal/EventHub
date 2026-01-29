@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>My Bookings | Eventhub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="icon">📅</span>
+      <span class="brand">Eventhub</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="browse-events.html">Browse Events</a>
+      <a href="bookings.html" onclick="requireLogin(event)">My Bookings</a>
+
+      <span id="userGreeting" class="user-greeting"></span>
+      <a href="login.html" id="loginBtn">Login</a>
+      <a href="#" id="logoutBtn" onclick="logoutUser()" style="display:none;">Logout</a>
+      <button id="themeToggle" class="btn">🌙</button>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <section class="browse-header">
+    <h1>My Bookings</h1>
+    <p>View and manage your event registrations</p>
+  </section>
+
+  <section class="bookings-wrapper">
+    <div id="bookingsList"></div>
+  </section>
+
+  <script>
+    function redirectLogin(e) {
+      if (!localStorage.getItem("user")) {
+        e.preventDefault();
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+
+  <script src="js/config.js"></script>
+  <script src="js/bookings.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard | Eventhub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ADMIN NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="icon">📅</span>
+      <span class="brand">Eventhub Admin</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="admin-dashboard.html" class="active">Dashboard</a>
+      <a href="create-events.html">Create Event</a>
+      <a href="#" onclick="showEvents()">Manage Events</a>
+      <a href="#" onclick="showBookings()">Registrations</a>
+      <a href="#" onclick="logout()">Logout</a>
+      <button id="themeToggle" class="btn">🌙</button>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <section class="admin-content">
+
+    <!-- DASHBOARD STATS -->
+    <div class="stats">
+      <div class="stat-card">
+        <h3 id="totalEvents">0</h3>
+        <p>Total Events</p>
+      </div>
+
+      <div class="stat-card">
+        <h3 id="totalBookings">0</h3>
+        <p>Total Registrations</p>
+      </div>
+    </div>
+
+    <!-- EVENTS TABLE -->
+    <div id="eventsSection" class="admin-section">
+      <h2>Manage Events</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="eventsTable"></tbody>
+      </table>
+    </div>
+
+    <!-- BOOKINGS TABLE -->
+    <div id="bookingsSection" class="admin-section" style="display:none;">
+      <h2>Event Registrations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>Event</th>
+            <th>Tickets</th>
+            <th>Total Paid</th>
+            <th>Status</th>
+            <th>Booked On</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsTable"></tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <script src="js/config.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

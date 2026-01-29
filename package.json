@@ -1,0 +1,9 @@
+{
+    "name": "eventhub-root",
+    "version": "1.0.0",
+    "description": "Root package.json to start the application",
+    "scripts": {
+        "start": "npm start --prefix backend",
+        "install-all": "npm install --prefix backend"
+    }
+}
